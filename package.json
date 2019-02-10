@@ -7,6 +7,9 @@
 		"presets": [
 			"@babel/preset-env",
 			"@babel/preset-react"
+		],
+		"plugins": [
+			"@babel/plugin-proposal-class-properties"
 		]
 	},
 	"scripts": {
@@ -26,11 +29,13 @@
 	},
 	"homepage": "https://github.com/raul-f/github-stars#readme",
 	"dependencies": {
+		"animejs": "^3.0.1",
 		"react": "^16.8.1",
 		"react-dom": "^16.8.1"
 	},
 	"devDependencies": {
 		"@babel/core": "^7.2.2",
+		"@babel/plugin-proposal-class-properties": "^7.3.0",
 		"@babel/preset-env": "^7.3.1",
 		"@babel/preset-react": "^7.0.0",
 		"babel-loader": "^8.0.5",
