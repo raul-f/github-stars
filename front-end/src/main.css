@@ -1,0 +1,357 @@
+body {
+  margin: 0;
+  font-family: Roboto, sans-serif;
+  color: #4f4f4f;
+}
+
+.app {
+  overflow: hidden;
+  height: 100vh;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.search-box {
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 18.35938vh;
+  width: 60.90278vw;
+}
+
+.search-box .logo {
+  margin: 0;
+  position: absolute;
+  top: 0px;
+  font-size: 2.5vw;
+  font-weight: 100;
+  pointer-events: none;
+  z-index: 1000;
+}
+
+.search-box .logo .logo-stars {
+  font-weight: normal;
+  color: #5253b9;
+}
+
+.search-box .input-box {
+  position: absolute;
+  bottom: 0px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  /* FF 4-18 */
+  /* FF 19+ */
+  /* IE 10+ */
+}
+
+.search-box .input-box .search-field {
+  width: 56.18056vw;
+  height: 8.88672vh;
+  padding: 0 2.36111vw;
+  border: none;
+  border-bottom: 1px solid transparent;
+  outline: none;
+  -webkit-box-shadow: 2px 2px 10px 0px rgba(0, 0, 0, 0.15);
+          box-shadow: 2px 2px 10px 0px rgba(0, 0, 0, 0.15);
+}
+
+.search-box .input-box .search-field:focus::-webkit-input-placeholder {
+  color: transparent;
+}
+
+.search-box .input-box .search-field:focus:-moz-placeholder {
+  color: transparent;
+}
+
+.search-box .input-box .search-field:focus::-moz-placeholder {
+  color: transparent;
+}
+
+.search-box .input-box .search-field:focus:-ms-input-placeholder {
+  color: transparent;
+}
+
+.search-box .input-box .search-icon {
+  position: absolute;
+  right: 2.36111vw;
+}
+
+.user-not-found-box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.user-not-found-box .user-not-found-message {
+  font-weight: 100;
+  font-size: 2.22222vw;
+}
+
+.user-box {
+  position: absolute;
+  top: 15.625vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.user-box .profile-box {
+  position: relative;
+  top: 3.125vh;
+  width: 16.11111vw;
+  height: 66.40625vh;
+  padding: 0;
+  border-radius: 5px 0 0 5px;
+  color: white;
+  background-color: #5253b9;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.user-box .profile-box .main-info {
+  position: relative;
+  background-color: rgba(0, 0, 0, 0.09);
+  border-radius: 5px 0 0;
+  width: 100%;
+  height: 51%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.user-box .profile-box .main-info .user-profile-img {
+  position: absolute;
+  height: 17.57812vh;
+  top: 2.92969vh;
+  border-radius: 50%;
+}
+
+.user-box .profile-box .main-info .user-name {
+  position: absolute;
+  bottom: 5.85938vh;
+  margin: 0px;
+  font-size: 1.38889vw;
+  font-weight: 400;
+}
+
+.user-box .profile-box .main-info .user-login {
+  position: absolute;
+  bottom: 2.63672vh;
+  margin: 0px;
+  font-size: 1.38889vw;
+  font-weight: 300;
+}
+
+.user-box .profile-box .secondary-info {
+  position: relative;
+  height: 49%;
+  width: 100%;
+  font-size: 0.97222vw;
+}
+
+.user-box .profile-box .secondary-info .bio {
+  margin: 1.46484vh 1.11111vw;
+}
+
+.user-box .profile-box .secondary-info .minor-info {
+  margin: 0.97656vh 0;
+  margin-left: 1.25vw;
+}
+
+.user-box .profile-box .secondary-info .info-icon {
+  position: relative;
+  top: 0.68359vh;
+  margin-right: 0.69444vw;
+}
+
+.user-box .profile-box .secondary-info .website {
+  color: white;
+}
+
+.user-box .repositories {
+  width: 62.5vw;
+  height: 75.19531vh;
+  padding-top: 2.92969vh;
+  -webkit-box-shadow: 4px 4px 40px 0px rgba(0, 0, 0, 0.25);
+          box-shadow: 4px 4px 40px 0px rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  overflow: scroll;
+  /* optional: show position indicator in red */
+}
+
+.user-box .repositories::-webkit-scrollbar {
+  width: 6px;
+  /* remove scrollbar space */
+  background: transparent;
+  /* optional: just make scrollbar invisible */
+}
+
+.user-box .repositories::-webkit-scrollbar-thumb {
+  background: #808080;
+  border-radius: 5px;
+}
+
+.user-box .repositories .single-repository {
+  width: 52.08333vw;
+  min-height: 21.97266vh;
+  margin: 2.92969vh 0;
+  padding: 0 2.22222vw;
+  border-radius: 5px;
+  -webkit-box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.15);
+          box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.15);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.user-box .repositories .single-repository .repository-info {
+  height: 15.625vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.user-box .repositories .single-repository .repository-info .repository-title {
+  margin: 0;
+  font-size: 1.38889vw;
+  font-weight: 400;
+}
+
+.user-box .repositories .single-repository .repository-info .repository-description {
+  margin: 0;
+  font-size: 1.11111vw;
+  font-weight: 300;
+  max-width: 43.75vw;
+}
+
+.user-box .repositories .single-repository .repository-info .repository-stars {
+  margin: 0;
+  font-size: 1.11111vw;
+  font-weight: 300;
+}
+
+.user-box .repositories .single-repository .repository-info .repository-stars .star-icon {
+  position: relative;
+  top: 0.48828vh;
+  margin-right: 0.55556vw;
+}
+
+.user-box .repositories .single-repository .star-button {
+  width: 6.25vw;
+  height: 5.85938vh;
+  border-radius: 5px;
+  background-color: transparent;
+  border: 2px solid #5152b7;
+  color: #5152b7;
+  cursor: pointer;
+  outline: none;
+}
+/*# sourceMappingURL=main.css.map */

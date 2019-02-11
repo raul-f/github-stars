@@ -30,12 +30,20 @@
 	"homepage": "https://github.com/raul-f/github-stars#readme",
 	"dependencies": {
 		"animejs": "^3.0.1",
+		"apollo-boost": "^0.1.27",
+		"apollo-cache-inmemory": "^1.4.2",
+		"apollo-link-context": "^1.0.14",
+		"apollo-link-http": "^1.5.11",
+		"dotenv": "^6.2.0",
+		"graphql": "^14.1.1",
 		"react": "^16.8.1",
+		"react-apollo": "^2.4.1",
 		"react-dom": "^16.8.1"
 	},
 	"devDependencies": {
 		"@babel/core": "^7.2.2",
 		"@babel/plugin-proposal-class-properties": "^7.3.0",
+		"@babel/polyfill": "^7.2.5",
 		"@babel/preset-env": "^7.3.1",
 		"@babel/preset-react": "^7.0.0",
 		"babel-loader": "^8.0.5",
