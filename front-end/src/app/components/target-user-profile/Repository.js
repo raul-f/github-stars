@@ -62,7 +62,7 @@ const StarButton = props => {
 								},
 							})
 							await props.starSetter(!props.starValue)
-							props.starHandler()
+							props.starHandler(!props.starValue)
 						}}
 					>
 						star
@@ -89,7 +89,7 @@ const UnstarButton = props => {
 								},
 							})
 							await props.starSetter(!props.starValue)
-							props.starHandler()
+							props.starHandler(!props.starValue)
 						}}
 					>
 						unstar

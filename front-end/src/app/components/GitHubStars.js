@@ -67,9 +67,9 @@ class GitHubStars extends React.Component {
 		}
 	}
 
-	handleStarAction = () => {
+	handleStarAction = starStatus => {
 		this.setState({
-			starAction: !this.state.starAction,
+			starAction: !starStatus,
 		})
 		transition()
 	}
