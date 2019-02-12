@@ -43,3 +43,20 @@ export const SEARCH_FOR_USER_QUERY = gql`
 		}
 	}
 `
+
+export const GET_PRIMARY_USER_STARS_QUERY = `
+	query GetUserByLogin($login: String!) {
+		user(login: $login) {
+			id
+			starredRepositories(first: 100) {
+				edges {
+					node {
+						id
+						name
+						url
+					}
+				}
+			}
+		}
+	}
+`

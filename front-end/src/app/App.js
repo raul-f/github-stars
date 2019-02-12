@@ -4,11 +4,10 @@ import { ApolloProvider } from 'react-apollo'
 import { HttpLink } from 'apollo-link-http'
 import { setContext } from 'apollo-link-context'
 import { InMemoryCache } from 'apollo-cache-inmemory'
-require('dotenv').config()
 
 import GitHubStars from './components/GitHubStars'
 
-const token = process.env.GITHUB_ACCESS_TOKEN
+const token = 'd4d042ec99d728f6464763382da7cb9aa406ae42'
 
 const authLink = setContext((_, { headers }) => {
 	return {

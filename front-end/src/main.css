@@ -1,11 +1,12 @@
 body {
+  overflow: hidden;
   margin: 0;
   font-family: Roboto, sans-serif;
   color: #4f4f4f;
 }
 
 .app {
-  overflow: hidden;
+  overflow-y: hidden;
   height: 100vh;
   width: 100%;
   display: -webkit-box;
@@ -15,6 +16,31 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.app .action-message-box {
+  position: absolute;
+  left: 2.22222vw;
+  bottom: -58.59375vh;
+  height: 5.85938vh;
+  min-width: 20.83333vw;
+  font-size: 1.11111vw;
+  border-radius: 5px;
+  color: white;
+  background-color: #23245c;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -110,7 +136,58 @@ body {
   right: 2.36111vw;
 }
 
-.user-not-found-box {
+.search-box .primary-user-profile-picture {
+  position: absolute;
+  right: 1.38889vw;
+  width: 0px;
+  height: auto;
+  border-radius: 50%;
+}
+
+.login-box {
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.login-box .logo {
+  font-size: 2.5vw;
+  font-weight: 100;
+  pointer-events: none;
+  z-index: 1000;
+}
+
+.login-box .logo .logo-stars {
+  font-weight: normal;
+  color: #5253b9;
+}
+
+.login-box .login-info {
+  font-size: 1.73611vw;
+  font-weight: 300;
+}
+
+.login-box .login-info .login-link {
+  color: #5253b9;
+  text-decoration: none;
+}
+
+.login-box .login-info .login-link:hover {
+  text-decoration: underline;
+}
+
+.target-user-not-found-box {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -126,12 +203,12 @@ body {
           align-items: center;
 }
 
-.user-not-found-box .user-not-found-message {
+.target-user-not-found-box .target-user-not-found-message {
   font-weight: 100;
   font-size: 2.22222vw;
 }
 
-.user-box {
+.target-user-box {
   position: absolute;
   top: 15.625vh;
   display: -webkit-box;
@@ -149,7 +226,7 @@ body {
           align-items: flex-start;
 }
 
-.user-box .profile-box {
+.target-user-box .target-user-profile-box {
   position: relative;
   top: 3.125vh;
   width: 16.11111vw;
@@ -173,7 +250,7 @@ body {
           align-items: center;
 }
 
-.user-box .profile-box .main-info {
+.target-user-box .target-user-profile-box .target-user-main-info {
   position: relative;
   background-color: rgba(0, 0, 0, 0.09);
   border-radius: 5px 0 0;
@@ -194,14 +271,14 @@ body {
           align-items: center;
 }
 
-.user-box .profile-box .main-info .user-profile-img {
+.target-user-box .target-user-profile-box .target-user-main-info .target-user-profile-img {
   position: absolute;
   height: 17.57812vh;
   top: 2.92969vh;
   border-radius: 50%;
 }
 
-.user-box .profile-box .main-info .user-name {
+.target-user-box .target-user-profile-box .target-user-main-info .target-user-name {
   position: absolute;
   bottom: 5.85938vh;
   margin: 0px;
@@ -209,7 +286,7 @@ body {
   font-weight: 400;
 }
 
-.user-box .profile-box .main-info .user-login {
+.target-user-box .target-user-profile-box .target-user-main-info .target-user-login {
   position: absolute;
   bottom: 2.63672vh;
   margin: 0px;
@@ -217,33 +294,33 @@ body {
   font-weight: 300;
 }
 
-.user-box .profile-box .secondary-info {
+.target-user-box .target-user-profile-box .target-user-secondary-info {
   position: relative;
   height: 49%;
   width: 100%;
   font-size: 0.97222vw;
 }
 
-.user-box .profile-box .secondary-info .bio {
+.target-user-box .target-user-profile-box .target-user-secondary-info .target-user-bio {
   margin: 1.46484vh 1.11111vw;
 }
 
-.user-box .profile-box .secondary-info .minor-info {
+.target-user-box .target-user-profile-box .target-user-secondary-info .target-user-minor-info {
   margin: 0.97656vh 0;
   margin-left: 1.25vw;
 }
 
-.user-box .profile-box .secondary-info .info-icon {
+.target-user-box .target-user-profile-box .target-user-secondary-info .info-icon {
   position: relative;
   top: 0.68359vh;
   margin-right: 0.69444vw;
 }
 
-.user-box .profile-box .secondary-info .website {
+.target-user-box .target-user-profile-box .target-user-secondary-info .website {
   color: white;
 }
 
-.user-box .repositories {
+.target-user-box .repositories {
   width: 62.5vw;
   height: 75.19531vh;
   padding-top: 2.92969vh;
@@ -267,19 +344,20 @@ body {
   /* optional: show position indicator in red */
 }
 
-.user-box .repositories::-webkit-scrollbar {
+.target-user-box .repositories::-webkit-scrollbar {
   width: 6px;
   /* remove scrollbar space */
   background: transparent;
   /* optional: just make scrollbar invisible */
 }
 
-.user-box .repositories::-webkit-scrollbar-thumb {
+.target-user-box .repositories::-webkit-scrollbar-thumb {
   background: #808080;
   border-radius: 5px;
 }
 
-.user-box .repositories .single-repository {
+.target-user-box .repositories .single-repository {
+  overflow: hidden;
   width: 52.08333vw;
   min-height: 21.97266vh;
   margin: 2.92969vh 0;
@@ -302,7 +380,7 @@ body {
           align-items: center;
 }
 
-.user-box .repositories .single-repository .repository-info {
+.target-user-box .repositories .single-repository .repository-info {
   height: 15.625vh;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -319,38 +397,55 @@ body {
           align-items: flex-start;
 }
 
-.user-box .repositories .single-repository .repository-info .repository-title {
+.target-user-box .repositories .single-repository .repository-info .repository-title {
   margin: 0;
   font-size: 1.38889vw;
   font-weight: 400;
+  color: inherit;
+  text-decoration: none;
 }
 
-.user-box .repositories .single-repository .repository-info .repository-description {
+.target-user-box .repositories .single-repository .repository-info .repository-title:hover {
+  color: #5253b9;
+}
+
+.target-user-box .repositories .single-repository .repository-info .repository-description {
   margin: 0;
   font-size: 1.11111vw;
   font-weight: 300;
   max-width: 43.75vw;
 }
 
-.user-box .repositories .single-repository .repository-info .repository-stars {
+.target-user-box .repositories .single-repository .repository-info .repository-stars {
   margin: 0;
   font-size: 1.11111vw;
   font-weight: 300;
 }
 
-.user-box .repositories .single-repository .repository-info .repository-stars .star-icon {
+.target-user-box .repositories .single-repository .repository-info .repository-stars .star-icon {
   position: relative;
   top: 0.48828vh;
   margin-right: 0.55556vw;
 }
 
-.user-box .repositories .single-repository .star-button {
+.target-user-box .repositories .single-repository .star-button {
   width: 6.25vw;
   height: 5.85938vh;
   border-radius: 5px;
   background-color: transparent;
   border: 2px solid #5152b7;
   color: #5152b7;
+  cursor: pointer;
+  outline: none;
+}
+
+.target-user-box .repositories .single-repository .unstar-button {
+  width: 6.25vw;
+  height: 5.85938vh;
+  border-radius: 5px;
+  background-color: #5152b7;
+  border: 2px solid #5152b7;
+  color: white;
   cursor: pointer;
   outline: none;
 }

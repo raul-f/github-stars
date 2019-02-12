@@ -9,16 +9,29 @@ $scaleY: 1024;
 }
 
 body {
+	overflow: hidden;
 	margin: 0;
 	font-family: Roboto, sans-serif;
 	color: #4f4f4f;
 }
 
 .app {
-	overflow: hidden;
+	overflow-y: hidden;
 	height: 100vh;
 	width: 100%;
 	@include f-style(column, center, center);
+	.action-message-box {
+		position: absolute;
+		left: (32 / $scaleX) * 100vw;
+		bottom: (-600 / $scaleY) * 100vh;
+		height: (60 / $scaleY) * 100vh;
+		min-width: (300 / $scaleX) * 100vw;
+		font-size: (16 / $scaleX) * 100vw;
+		border-radius: 5px;
+		color: white;
+		background-color: #23245c;
+		@include f-style(row, center, center);
+	}
 }
 
 .search-box {
@@ -69,21 +82,54 @@ body {
 			right: (34 / $scaleX) * 100vw;
 		}
 	}
+	.primary-user-profile-picture {
+		position: absolute;
+		right: (20 / $scaleX) * 100vw;
+		width: 0px;
+		height: auto;
+		border-radius: 50%;
+	}
 }
 
-.user-not-found-box {
+.login-box {
+	position: absolute;
+	@include f-style(column, flex-start, center);
+	.logo {
+		font-size: (36 / $scaleX) * 100vw;
+		font-weight: 100;
+		pointer-events: none;
+		.logo-stars {
+			font-weight: normal;
+			color: #5253b9;
+		}
+		z-index: 1000;
+	}
+	.login-info {
+		font-size: (25 / $scaleX) * 100vw;
+		font-weight: 300;
+		.login-link {
+			color: #5253b9;
+			text-decoration: none;
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+	}
+}
+
+.target-user-not-found-box {
 	@include f-style(column, center, center);
-	.user-not-found-message {
+	.target-user-not-found-message {
 		font-weight: 100;
 		font-size: (32 / $scaleX) * 100vw;
 	}
 }
 
-.user-box {
+.target-user-box {
 	position: absolute;
 	top: (160 / $scaleY) * 100vh;
 	@include f-style(row, center, flex-start);
-	.profile-box {
+	.target-user-profile-box {
 		position: relative;
 		top: (32 / $scaleY) * 100vh;
 		width: (232 / $scaleX) * 100vw;
@@ -93,27 +139,27 @@ body {
 		color: white;
 		background-color: #5253b9;
 		@include f-style(column, space-between, center);
-		.main-info {
+		.target-user-main-info {
 			position: relative;
 			background-color: rgba($color: #000000, $alpha: 0.09);
 			border-radius: 5px 0 0;
 			width: 100%;
 			height: 51%;
 			@include f-style(column, center, center);
-			.user-profile-img {
+			.target-user-profile-img {
 				position: absolute;
 				height: (180 / $scaleY) * 100vh;
 				top: (30 / $scaleY) * 100vh;
 				border-radius: 50%;
 			}
-			.user-name {
+			.target-user-name {
 				position: absolute;
 				bottom: (60 / $scaleY) * 100vh;
 				margin: 0px;
 				font-size: (20 / $scaleX) * 100vw;
 				font-weight: 400;
 			}
-			.user-login {
+			.target-user-login {
 				position: absolute;
 				bottom: (27 / $scaleY) * 100vh;
 				margin: 0px;
@@ -121,15 +167,15 @@ body {
 				font-weight: 300;
 			}
 		}
-		.secondary-info {
+		.target-user-secondary-info {
 			position: relative;
 			height: 49%;
 			width: 100%;
 			font-size: (14 / $scaleX) * 100vw;
-			.bio {
+			.target-user-bio {
 				margin: (15 / $scaleY) * 100vh (16 / $scaleX) * 100vw;
 			}
-			.minor-info {
+			.target-user-minor-info {
 				margin: (10 / $scaleY) * 100vh 0;
 				margin-left: (18 / $scaleX) * 100vw;
 			}
@@ -161,6 +207,7 @@ body {
 			border-radius: 5px;
 		}
 		.single-repository {
+			overflow: hidden;
 			width: (750 / $scaleX) * 100vw;
 			min-height: (225 / $scaleY) * 100vh;
 			margin: (30 / $scaleY) * 100vh 0;
@@ -175,6 +222,11 @@ body {
 					margin: 0;
 					font-size: (20 / $scaleX) * 100vw;
 					font-weight: 400;
+					color: inherit;
+					text-decoration: none;
+					&:hover {
+						color: #5253b9;
+					}
 				}
 				.repository-description {
 					margin: 0;
@@ -200,6 +252,16 @@ body {
 				background-color: transparent;
 				border: 2px solid #5152b7;
 				color: #5152b7;
+				cursor: pointer;
+				outline: none;
+			}
+			.unstar-button {
+				width: (90 / $scaleX) * 100vw;
+				height: (60 / $scaleY) * 100vh;
+				border-radius: 5px;
+				background-color: #5152b7;
+				border: 2px solid #5152b7;
+				color: white;
 				cursor: pointer;
 				outline: none;
 			}

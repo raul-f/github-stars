@@ -51,6 +51,14 @@ const transition = () => {
 		},
 		0
 	)
+	timeline.add(
+		{
+			targets: '.primary-user-profile-picture',
+			width: (64 / height) * window.innerHeight,
+			height: (64 / height) * window.innerHeight,
+		},
+		0
+	)
 }
 
 const Search = props => {
@@ -71,6 +79,16 @@ const Search = props => {
 				/>
 				<i className="fas fa-search search-icon" />
 			</div>
+			<a
+				href={props.profile}
+				target="_blank"
+				className="primary-user-profile-picture-link"
+			>
+				<img
+					className="primary-user-profile-picture"
+					src={props.pictureUrl}
+				/>
+			</a>
 		</div>
 	)
 }

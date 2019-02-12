@@ -1,13 +1,17 @@
 import React from 'react'
 import { Query } from 'react-apollo'
+import anime from 'animejs'
 
 import UserNotFound from './UserNotFound'
-import UserProfile from './UserProfile'
+import TargetUserProfile from './TargetUserProfile'
 import Search from './Search'
+import Login from './Login'
+import Loading from './Loading'
 
 import {
 	GET_USER_BY_LOGIN_QUERY,
 	SEARCH_FOR_USER_QUERY,
+	GET_PRIMARY_USER_STARS_QUERY,
 } from './graphql/queries'
 
 const loadingIcon = (
@@ -21,12 +25,7 @@ const findLoginFromSearchResult = ({ loading, error, data }) => {
 		return `${error.message}`
 	}
 
-	if (
-		data &&
-		data.search &&
-		data.search.edges[0] &&
-		data.search.edges[0].textMatches
-	) {
+	if (data.search.edges[0]) {
 		const edges = data.search.edges
 		let target
 
@@ -37,26 +36,15 @@ const findLoginFromSearchResult = ({ loading, error, data }) => {
 					break
 				}
 			}
-
 			if (target) {
 				break
 			}
 		}
 
-		return target ? { login: target, found: true } : <UserNotFound />
+		return target ? { login: target } : <UserNotFound />
 	} else {
 		return <UserNotFound />
 	}
-}
-
-const processUserData = ({ loading, error, data }) => {
-	if (loading) {
-		return loadingIcon
-	} else if (error) {
-		return `${error.message}`
-	}
-
-	return <UserProfile data={data.user} />
 }
 
 class GitHubStars extends React.Component {
@@ -64,47 +52,164 @@ class GitHubStars extends React.Component {
 		super(props)
 		this.state = {
 			searchInput: '',
+			authenticated: false,
+			loading: true,
+			primaryUserData: {},
+			starAction: false,
 		}
 	}
 
-	handleSearchInput = async event => {
-		await this.setState({
-			searchInput: event.target.value,
+	handleSearchInput = event => {
+		if (this.state.primaryUserData.username) {
+			this.setState({
+				searchInput: event.target.value,
+			})
+		}
+	}
+
+	handleStarAction = () => {
+		this.setState({
+			starAction: !this.state.starAction,
 		})
-		//console.log(this.state)
+		transition()
+	}
+
+	componentDidMount = async () => {
+		let firstFetchRequest = await fetch('http://localhost:3000/userdata')
+		let firstResult = await firstFetchRequest.json()
+		if (firstResult.profile) {
+			await this.setState({
+				authenticated: true,
+				loading: false,
+				primaryUserData: firstResult.profile,
+			})
+
+			const token = 'd4d042ec99d728f6464763382da7cb9aa406ae42'
+
+			const secondFetchRequest = await fetch(
+				'https://api.github.com/graphql',
+				{
+					method: 'POST',
+					headers: {
+						'Content-Type': 'application/json',
+						authorization: token ? `Bearer ${token}` : null,
+					},
+					body: JSON.stringify({
+						query: GET_PRIMARY_USER_STARS_QUERY,
+						variables: {
+							login: this.state.primaryUserData._json.login,
+						},
+					}),
+				}
+			)
+
+			const secondResult = await secondFetchRequest.json()
+
+			this.setState({
+				primaryUserData: {
+					...this.state.primaryUserData,
+					starredRepositories: secondResult.data.user.starredRepositories.edges.map(
+						item => {
+							return { ...item.node }
+						}
+					),
+				},
+			})
+		} else {
+			this.setState({ loading: false })
+		}
 	}
 
 	render() {
 		return (
 			<div className="app" id="app">
-				<Search search={this.handleSearchInput} />
+				{this.state.loading ? (
+					<Loading />
+				) : this.state.authenticated ? (
+					<Search
+						search={this.handleSearchInput}
+						pictureUrl={this.state.primaryUserData.photos[0].value}
+						profile={this.state.primaryUserData.profileUrl}
+					/>
+				) : (
+					<Login />
+				)}
 				{this.state.searchInput && (
 					<Query
 						query={SEARCH_FOR_USER_QUERY}
 						variables={{ searchString: this.state.searchInput }}
 					>
-						{returnedData => {
+						{returnedSearchData => {
 							const output = findLoginFromSearchResult(
-								returnedData
+								returnedSearchData
 							)
-							return output.login ? (
-								<Query
-									query={GET_USER_BY_LOGIN_QUERY}
-									variables={{ login: output.login }}
-								>
-									{returnedUserData => {
-										return processUserData(returnedUserData)
-									}}
-								</Query>
-							) : (
-								output
-							)
+
+							if (output.login) {
+								return (
+									<Query
+										query={GET_USER_BY_LOGIN_QUERY}
+										variables={{ login: output.login }}
+									>
+										{({ loading, error, data }) => {
+											if (loading) {
+												return loadingIcon
+											} else if (error) {
+												return `${error.message}`
+											}
+
+											data.primaryUserData = this.state.primaryUserData
+
+											return (
+												<TargetUserProfile
+													data={data.user}
+													primaryUserData={
+														data.primaryUserData
+													}
+													starHandler={
+														this.handleStarAction
+													}
+												/>
+											)
+										}}
+									</Query>
+								)
+							}
+
+							return output
 						}}
 					</Query>
 				)}
+				<ActionStatusMessage starValue={this.state.starAction} />
 			</div>
 		)
 	}
+}
+
+const ActionStatusMessage = props => {
+	return (
+		<div className="action-message-box">
+			<p className="action-message-text">
+				Repo {props.starValue ? 'has been unstarred' : 'starred'} with
+				success.
+			</p>
+		</div>
+	)
+}
+
+const transition = () => {
+	const height = 1024
+	const width = 1440
+
+	let timeline = anime.timeline({
+		duration: 2000,
+		targets: '.action-message-box',
+	})
+	timeline.add({
+		bottom: (50 / height) * window.innerHeight,
+	})
+	timeline.add({
+		bottom: (-70 / height) * window.innerHeight,
+	})
 }
 
 export default GitHubStars

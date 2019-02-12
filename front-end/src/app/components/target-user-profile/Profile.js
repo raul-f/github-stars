@@ -2,16 +2,21 @@ import React from 'react'
 
 const Profile = props => {
 	return (
-		<div className="profile-box">
-			<div className="main-info">
-				<img className="user-profile-img" src={props.data.avatarUrl} />
-				<h2 className="user-name">{props.data.name}</h2>
-				<h3 className="user-login">{props.data.login}</h3>
+		<div className="target-user-profile-box">
+			<div className="target-user-main-info">
+				<img
+					className="target-user-profile-img"
+					src={props.data.avatarUrl}
+				/>
+				<h2 className="target-user-name">{props.data.name}</h2>
+				<h3 className="target-user-login">{props.data.login}</h3>
 			</div>
-			<div className="secondary-info">
-				{props.data.bio && <p className="bio">{props.data.bio}</p>}
+			<div className="target-user-secondary-info">
+				{props.data.bio && (
+					<p className="target-user-bio">{props.data.bio}</p>
+				)}
 				{props.data.company && (
-					<p className="company minor-info">
+					<p className="company target-user-minor-info">
 						<img
 							className="info-icon"
 							src="https://s3-sa-east-1.amazonaws.com/myhostedfiles.raulf/Images/svg-icons/users.svg"
@@ -20,7 +25,7 @@ const Profile = props => {
 					</p>
 				)}
 				{props.data.location && (
-					<p className="location minor-info">
+					<p className="location target-user-minor-info">
 						<img
 							className="info-icon"
 							src="https://s3-sa-east-1.amazonaws.com/myhostedfiles.raulf/Images/svg-icons/map-pin.svg"
@@ -29,7 +34,7 @@ const Profile = props => {
 					</p>
 				)}
 				{props.data.email && (
-					<p className="email minor-info">
+					<p className="email target-user-minor-info">
 						<img
 							className="info-icon"
 							src="https://s3-sa-east-1.amazonaws.com/myhostedfiles.raulf/Images/svg-icons/mail.svg"
@@ -39,7 +44,7 @@ const Profile = props => {
 				)}
 				{props.data.websiteUrl && (
 					<a
-						className="website minor-info"
+						className="website target-user-minor-info"
 						href={props.data.websiteUrl}
 						target="_blank"
 					>
