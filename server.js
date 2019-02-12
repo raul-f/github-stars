@@ -49,6 +49,7 @@ app.route('/auth/github/callback').get(
 
 app.route('/userdata').get((req, res) => {
 	res.json({ profile: userProfile })
+	userProfile = null
 })
 
 app.use('/bundle.js', express.static('./dist/bundle.js'))
