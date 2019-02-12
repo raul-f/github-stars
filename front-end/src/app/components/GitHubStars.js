@@ -75,7 +75,9 @@ class GitHubStars extends React.Component {
 	}
 
 	componentDidMount = async () => {
-		let firstFetchRequest = await fetch('http://localhost:3000/userdata')
+		let firstFetchRequest = await fetch(
+			'https://github-stars.glitch.me/userdata'
+		)
 		let firstResult = await firstFetchRequest.json()
 		if (firstResult.profile) {
 			await this.setState({
@@ -84,7 +86,7 @@ class GitHubStars extends React.Component {
 				primaryUserData: firstResult.profile,
 			})
 
-			const token = 'd4d042ec99d728f6464763382da7cb9aa406ae42'
+			const token = ''
 
 			const secondFetchRequest = await fetch(
 				'https://api.github.com/graphql',

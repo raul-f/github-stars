@@ -7,7 +7,7 @@ import { InMemoryCache } from 'apollo-cache-inmemory'
 
 import GitHubStars from './components/GitHubStars'
 
-const token = 'd4d042ec99d728f6464763382da7cb9aa406ae42'
+const token = ''
 
 const authLink = setContext((_, { headers }) => {
 	return {
