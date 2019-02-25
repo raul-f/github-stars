@@ -24,6 +24,13 @@ export const GET_USER_BY_LOGIN_QUERY = gql`
 						stargazers {
 							totalCount
 						}
+						languages(first: 20) {
+							edges {
+								node {
+									name
+								}
+							}
+						}
 					}
 				}
 			}

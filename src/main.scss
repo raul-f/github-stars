@@ -206,6 +206,10 @@ body {
 			background: #808080;
 			border-radius: 5px;
 		}
+		.language-filter {
+			margin-top: 10px;
+			min-height: (50 / $scaleY) * 100vh;
+		}
 		.single-repository {
 			overflow: hidden;
 			width: (750 / $scaleX) * 100vw;

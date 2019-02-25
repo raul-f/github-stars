@@ -356,6 +356,11 @@ body {
   border-radius: 5px;
 }
 
+.target-user-box .repositories .language-filter {
+  margin-top: 10px;
+  min-height: 4.88281vh;
+}
+
 .target-user-box .repositories .single-repository {
   overflow: hidden;
   width: 52.08333vw;
