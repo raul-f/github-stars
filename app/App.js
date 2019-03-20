@@ -107,7 +107,9 @@ class App extends React.Component {
 	}
 
 	componentDidMount = async () => {
-		let userDataRequest = await fetch('http://localhost:8080/userdata')
+		let userDataRequest = await fetch(
+			'https://github-stars.glitch.me//userdata'
+		)
 		let userData = await userDataRequest.json()
 
 		console.log(userData)
