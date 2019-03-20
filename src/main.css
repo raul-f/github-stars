@@ -359,6 +359,11 @@ body {
 .target-user-box .repositories .language-filter {
   margin-top: 10px;
   min-height: 4.88281vh;
+  -webkit-box-shadow: 4px 4px 40px 0px rgba(0, 0, 0, 0.25);
+          box-shadow: 4px 4px 40px 0px rgba(0, 0, 0, 0.25);
+  border: none;
+  border-radius: 5px;
+  background-color: white;
 }
 
 .target-user-box .repositories .single-repository {
